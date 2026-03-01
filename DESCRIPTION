@@ -1,0 +1,14 @@
+Package: nicheRshiny
+Title: BIO1 Workflow for South America via Shiny
+Version: 0.1.0
+Authors@R: person("Vaibhav", "Manihar", email = "vaibhav.manihar@gmail.com", role = c("aut", "cre"))
+Description: Interactive Shiny app that downloads WorldClim bioclimatic data,
+    crops and masks BIO1 to South America, and reports summary statistics.
+License: MIT + file LICENSE
+Encoding: UTF-8
+LazyData: true
+Imports:
+    shiny,
+    terra,
+    geodata
+RoxygenNote: 7.3.2

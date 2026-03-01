@@ -1,0 +1,12 @@
+.Rhistory
+.RData
+.Rprofile
+.Renviron
+.DS_Store
+Thumbs.db
+*.Rproj
+.Rproj.user/
+.vscode/
+inst/doc
+vignettes/*.html
+vignettes/*.pdf

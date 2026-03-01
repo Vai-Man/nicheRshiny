@@ -1,0 +1,2 @@
+exclusions: list()
+linters: linters_with_defaults(object_usage_linter = NULL, line_length_linter = lintr::line_length_linter(120L))
