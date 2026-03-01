@@ -7,10 +7,10 @@
 #' @return A `SpatVector` of the merged South American continent polygon.
 #' @export
 load_boundaries <- function(cache_path) {
-  sa_continent_file <- file.path(cache_path, "south_america_continent.rds")
+  sa_continent_file <- file.path(cache_path, "south_america_continent.gpkg")
 
   if (file.exists(sa_continent_file)) {
-    return(readRDS(sa_continent_file))
+    return(terra::vect(sa_continent_file))
   }
 
   sa_countries <- c("ARG", "BOL", "BRA", "CHL", "COL", "ECU",
@@ -21,6 +21,6 @@ load_boundaries <- function(cache_path) {
   })
 
   sa_polygons <- terra::aggregate(do.call(rbind, polys_list))
-  saveRDS(sa_polygons, sa_continent_file)
+  terra::writeVector(sa_polygons, sa_continent_file, overwrite = TRUE)
   sa_polygons
 }
