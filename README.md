@@ -1,5 +1,7 @@
 # nicheRshiny
 
+[![R-CMD-check](https://github.com/vai-man/nicheRshiny/actions/workflows/R-CMD-check.yaml/badge.svg)](https://github.com/vai-man/nicheRshiny/actions/workflows/R-CMD-check.yaml)
+
 Interactive Shiny app that downloads WorldClim bioclimatic data, crops and masks BIO1 to South America, and reports summary statistics.
 
 ## Installation

@@ -29,11 +29,7 @@ app_ui <- function() {
 }
 
 app_server <- function(input, output, session) {
-  cached_data <- shiny::reactiveVal(NULL)
-
   workflow_data <- shiny::eventReactive(input$run_workflow, {
-    if (!is.null(cached_data())) return(cached_data())
-
     shiny::withProgress(message = "Running workflow...", value = 0, {
       cache_path <- tools::R_user_dir("nicheRshiny", which = "cache")
       dir.create(cache_path, showWarnings = FALSE, recursive = TRUE)
@@ -56,14 +52,12 @@ app_server <- function(input, output, session) {
       shiny::incProgress(0.95, detail = "Step 6: Statistics")
       stats <- compute_stats(bio1_masked)
 
-      result <- list(
+      list(
         bio1_global  = bio1_global,
         bio1_cropped = bio1_cropped,
         bio1_masked  = bio1_masked,
         stats        = stats
       )
-      cached_data(result)
-      result
     })
   })
 
